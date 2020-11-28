@@ -14,28 +14,28 @@ public class QueueTest {
 	  static int start; //시작정점
 	  
 	  public static void main(String[] args) throws IOException {
-	  Scanner sc = new Scanner(System.in);
-	  n = sc.nextInt();
-	  m = sc.nextInt();
-	  start = sc.nextInt();
+		  Scanner sc = new Scanner(System.in);
+		  n = sc.nextInt();
+		  m = sc.nextInt();
+		  start = sc.nextInt();
+		  
+		  check = new int[1001][1001]; //좌표를 그대로 받아들이기 위해 +1해서 선언
+		  checked = new boolean[1001]; //초기값 False
 	  
-	  check = new int[1001][1001]; //좌표를 그대로 받아들이기 위해 +1해서 선언
-	  checked = new boolean[1001]; //초기값 False
-	  
-	  //간선 연결상태 저장
-	  for(int i = 0; i < m; i++) {
-	    int x = sc.nextInt();
-	    int y = sc.nextInt();
+		  //간선 연결상태 저장
+		  for(int i = 0; i < m; i++) {
+			  int x = sc.nextInt();
+			  int y = sc.nextInt();
 	    
-	    check[x][y] = check[y][x] = 1;
-	  }
+			  check[x][y] = check[y][x] = 1;
+		  }
 	  
-	  dfs(start); //dfs호출
+		  dfs(start); //dfs호출
+		  
+		  checked = new boolean[1001]; //확인상태 초기화
+		  System.out.println(); //줄바꿈
 	  
-	  checked = new boolean[1001]; //확인상태 초기화
-	  System.out.println(); //줄바꿈
-	  
-	  bfs(); //bfs호출
+		  bfs(); //bfs호출
 	  }
 	  
 	  //시작점을 변수로 받아 확인, 출력 후 다음 연결점을 찾아 시작점을 변경하여 재호출
